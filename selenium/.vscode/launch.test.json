@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "selenium",
+                "projectName": "selenium",
+                "workingDirectory": "c:\\Users\\normal\\java\\ms01\\selenium",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "selenium",
+                "projectName": "selenium",
+                "workingDirectory": "c:\\Users\\normal\\java\\ms01\\selenium",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
