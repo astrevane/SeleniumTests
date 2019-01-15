@@ -10,7 +10,7 @@ final public class Driver {
     static public WebDriver getDriver() {
         if (!initialized) {
             initialized = true;
-            System.setProperty("webdriver.gecko.driver", "c:/_PROGRAMS/Java/geckodriver.exe");            
+            System.setProperty("webdriver.gecko.driver", "c:/java/geckodriver.exe");            
         }
         driver = new FirefoxDriver();
         driver.manage().window().maximize();  

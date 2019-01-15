@@ -13,10 +13,9 @@ import org.openqa.selenium.support.ui.Select;
 final public class SelectDropdownList {
     static final public String URL = "https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html";
     static public void selectFromList(WebDriver driver, String element) {
-        //Select day = new Select(driver.findElement(By.id("select-demo")));
-        //driver.findElement(By.id("select-demo")).click();
-        //day.selectByVisibleText(element);
-        driver.findElement(By.xpath("//span[@class='select2-selection select2-selection--single']")).click();;
+        Select day = new Select(driver.findElement(By.id("select-demo")));
+        driver.findElement(By.id("select-demo")).click();
+        day.selectByVisibleText(element);
     }
     static public String getDaySelectedMessage(WebDriver driver) {
         return driver.findElement(By.xpath("//p[@class='selected-value']")).getText();
