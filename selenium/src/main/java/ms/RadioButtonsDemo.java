@@ -24,8 +24,6 @@ final public class RadioButtonsDemo {
         driver.findElement(By.xpath("//button[text()='Get values']")).click();
     }
     static public String getValuesMessage(WebDriver driver) {
-        // return driver.findElement(By.xpath("//p[@class='groupradiobutton']")).getAttribute("firstChild") + 
-        // driver.findElement(By.xpath("//p[@class='groupradiobutton']")).getAttribute("lastChild");
         return driver.findElement(By.xpath("//p[@class='groupradiobutton']")).getAttribute("innerHTML");
     }
 }

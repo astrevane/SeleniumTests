@@ -2,6 +2,7 @@ package ms;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 
 final public class CheckboxDemo {
@@ -19,10 +20,13 @@ final public class CheckboxDemo {
             }            
         }        
      }
+     static private WebElement getCheckAllButton(WebDriver driver) {
+         return driver.findElement(By.id("check1"));
+     }
      static public void checkAll(WebDriver driver) {
-        driver.findElement(By.id("check1")).click();
+        getCheckAllButton(driver).click();
      }
      static public String getMessageOnCheckAllButton(WebDriver driver) {
-        return driver.findElement(By.id("check1")).getAttribute("value");        
+        return getCheckAllButton(driver).getAttribute("value");        
      }
 }

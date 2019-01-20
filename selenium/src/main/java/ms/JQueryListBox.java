@@ -12,8 +12,14 @@ import org.openqa.selenium.support.ui.Select;
 
 final public class JQueryListBox {
     static final public String URL = "https://www.seleniumeasy.com/test/jquery-dual-list-box-demo.html";
-    static public void selectFromLeft(WebDriver driver, String... elements) {
-        Select list = new Select(driver.findElement(By.xpath("//select[@class='form-control pickListSelect pickData']")));
+    static private WebElement getDataList(WebDriver driver) {
+        return driver.findElement(By.xpath("//select[@class='form-control pickListSelect pickData']"));
+    }   
+    static private WebElement getResultList(WebDriver driver) {
+        return driver.findElement(By.xpath("//select[@class='form-control pickListSelect pickListResult']"));
+    }   
+    static public void selectFromDataList(WebDriver driver, String... elements) {
+        Select list = new Select(getDataList(driver));
         Actions action = new Actions(driver);
         List<WebElement> listElements = list.getOptions();        
         action.keyDown(Keys.LEFT_CONTROL);
@@ -27,8 +33,8 @@ final public class JQueryListBox {
         action.keyUp(Keys.LEFT_CONTROL);
         action.build().perform();        
     }
-    static public void selectFromRight(WebDriver driver, String... elements) {
-        Select list = new Select(driver.findElement(By.xpath("//select[@class='form-control pickListSelect pickListResult']")));
+    static public void selectFromResultList(WebDriver driver, String... elements) {
+        Select list = new Select(getResultList(driver));
         Actions action = new Actions(driver);
         List<WebElement> listElements = list.getOptions();        
         action.keyDown(Keys.LEFT_CONTROL);
@@ -54,8 +60,8 @@ final public class JQueryListBox {
     static public void removeAll(WebDriver driver) {
         driver.findElement(By.xpath("//button[@class='pRemoveAll btn btn-primary btn-sm']")).click();
     }
-    static public boolean lookForAnyInRightOne(WebDriver driver, String... elements) {
-        List<WebElement> list = new Select(driver.findElement(By.xpath("//select[@class='form-control pickListSelect pickListResult']"))).getOptions();
+    static public boolean lookForAnyInResultList(WebDriver driver, String... elements) {
+        List<WebElement> list = new Select(getResultList(driver)).getOptions();
         for (String element : elements) {
             for (int i = 0; i < list.size(); ++i) {
                 if (element.equals(list.get(i).getText())) {
@@ -65,8 +71,8 @@ final public class JQueryListBox {
         }
         return false;
     }
-    static public boolean lookForAnyInLeftOne(WebDriver driver, String... elements) {
-        List<WebElement> list = new Select(driver.findElement(By.xpath("//select[@class='form-control pickListSelect pickData']"))).getOptions();
+    static public boolean lookForAnyInDataList(WebDriver driver, String... elements) {
+        List<WebElement> list = new Select(getDataList(driver)).getOptions();
         for (String element : elements) {
             for (int i = 0; i < list.size(); ++i) {
                 if (element.equals(list.get(i).getText())) {
@@ -76,15 +82,15 @@ final public class JQueryListBox {
         }
         return false;
     }
-    static public boolean isRightOneEmpty(WebDriver driver) {
-        List<WebElement> list = new Select(driver.findElement(By.xpath("//select[@class='form-control pickListSelect pickListResult']"))).getOptions();
+    static public boolean isResultListEmpty(WebDriver driver) {
+        List<WebElement> list = new Select(getResultList(driver)).getOptions();
         if (list.isEmpty()) {
             return true;
         } 
         return false;
     }
-    static public boolean isLeftOneEmpty(WebDriver driver) {
-        List<WebElement> list = new Select(driver.findElement(By.xpath("//select[@class='form-control pickListSelect pickData']"))).getOptions();
+    static public boolean isDataListEmpty(WebDriver driver) {
+        List<WebElement> list = new Select(getDataList(driver)).getOptions();
         if (list.isEmpty()) {
             return true;
         } 

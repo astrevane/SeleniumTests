@@ -21,22 +21,22 @@ public class JQueryListBoxTest {
     }
     @Test
     public void addFew() {
-        Assert.assertTrue(JQueryListBox.isRightOneEmpty(driver));
-        JQueryListBox.selectFromLeft(driver, "Alice", "Laura", "Julia");
+        Assert.assertTrue(JQueryListBox.isResultListEmpty(driver));
+        JQueryListBox.selectFromDataList(driver, "Alice", "Laura", "Julia");
         JQueryListBox.addSelected(driver);
-        Assert.assertTrue(JQueryListBox.lookForAnyInRightOne(driver, "Alice"));
-        Assert.assertTrue(JQueryListBox.lookForAnyInRightOne(driver, "Laura"));
-        Assert.assertTrue(JQueryListBox.lookForAnyInRightOne(driver, "Julia"));
-        Assert.assertFalse(JQueryListBox.isLeftOneEmpty(driver));
+        Assert.assertTrue(JQueryListBox.lookForAnyInResultList(driver, "Alice"));
+        Assert.assertTrue(JQueryListBox.lookForAnyInResultList(driver, "Laura"));
+        Assert.assertTrue(JQueryListBox.lookForAnyInResultList(driver, "Julia"));
+        Assert.assertFalse(JQueryListBox.isDataListEmpty(driver));
         JQueryListBox.addAll(driver);
-        Assert.assertTrue(JQueryListBox.isLeftOneEmpty(driver));
-        JQueryListBox.selectFromRight(driver, "Isis", "Lara", "Luiza");
+        Assert.assertTrue(JQueryListBox.isDataListEmpty(driver));
+        JQueryListBox.selectFromResultList(driver, "Isis", "Lara", "Luiza");
         JQueryListBox.removeSelected(driver);
-        Assert.assertTrue(JQueryListBox.lookForAnyInLeftOne(driver, "Isis"));
-        Assert.assertTrue(JQueryListBox.lookForAnyInLeftOne(driver, "Lara"));
-        Assert.assertTrue(JQueryListBox.lookForAnyInLeftOne(driver, "Luiza"));
+        Assert.assertTrue(JQueryListBox.lookForAnyInDataList(driver, "Isis"));
+        Assert.assertTrue(JQueryListBox.lookForAnyInDataList(driver, "Lara"));
+        Assert.assertTrue(JQueryListBox.lookForAnyInDataList(driver, "Luiza"));
         JQueryListBox.removeAll(driver);
-        Assert.assertTrue(JQueryListBox.isRightOneEmpty(driver));
+        Assert.assertTrue(JQueryListBox.isResultListEmpty(driver));
     }
     
 }

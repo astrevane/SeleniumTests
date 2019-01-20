@@ -22,15 +22,15 @@ public class SimpleFormDemoTest
     }
     @Test
     public void testSingleInputField() {
-        SimpleFormDemo.getMessageInput(driver).sendKeys("american beauty");
-        SimpleFormDemo.getShowMessageButton(driver).click();        
+        SimpleFormDemo.setMessageInput(driver, "american beauty");;
+        SimpleFormDemo.clickShowMessageButton(driver);        
         Assert.assertEquals("american beauty", SimpleFormDemo.getDisplayedMessage(driver));       
     }
     @Test
     public void testTwoInputFields() {
-        SimpleFormDemo.getFirstValueInput(driver).sendKeys("2");
-        SimpleFormDemo.getSecondValueInput(driver).sendKeys("3");
-        SimpleFormDemo.getSumValuesInput(driver).click();
+        SimpleFormDemo.setFirstValueInput(driver, "2");
+        SimpleFormDemo.setSecondValueInput(driver, "3");
+        SimpleFormDemo.clickSumValuesButton(driver);
         Assert.assertEquals("5", SimpleFormDemo.getSumText(driver));
     }
     
